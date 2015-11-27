@@ -1,0 +1,38 @@
+<h1>Produccion Global</h1>
+<hr>
+
+		<% @dia = 0 %>
+		<% @dias = 1 %>
+		<% @mananas = 0 %>
+		<% @tardes = 0 %>
+		<% @fincas = 0 %>
+
+
+<% @producciones.each do |produccion| %>
+	<% @dias 	+=  produccion.calendario_producciones.count  %>
+	<% produccion.calendario_producciones.each do |calendario|%>
+		
+			<!--Muestro el dia-->
+				
+			Dia :<%= calendario.dia %> | Manana :<%= calendario.manana %> | Tarde :<%= calendario.tarde %> | Finca :<%= calendario.finca %>
+				
+				<!--contador-->
+				<% @dia = calendario.dia %>
+				<% @mananas += calendario.manana %>
+				<% @tardes += calendario.tarde %>
+				<% @fincas +=  calendario.finca %>
+
+				<hr>	
+			
+	<% end %>
+	<br>
+<% end %>
+
+
+Total Dias :<%= @dia %> |
+Total Mañana :<%= @mananas %> |
+Total Tarde :<%= @tardes %> |
+Total Fincas :<%= @fincas %> 
+
+
+<!--en el modelo registras que los dias son unicos-->

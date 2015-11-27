@@ -1,0 +1,102 @@
+
+          <!-- Form components -->
+        <!--<form class="form-horizontal" role="form" action="#">-->
+        
+         <%= form_for(@produccion, :class => "form-horizontal") do |f| %>
+          <% if @produccion.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@produccion.errors.count, "error") %> prohibited this produccion from being saved:</h2>
+
+              <ul>
+              <% @produccion.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+        <!-- Basic inputs -->
+            <div class="panel panel-default">
+              <div class="panel-heading"><h6 class="panel-title"><i class="icon-bubble4"></i> Formulario</h6></div>
+                  <div class="panel-body">
+
+                      
+
+
+
+            <div class="form-group">
+              <!--<label class="col-sm-2 control-label">Default text input: </label>-->
+               <%= f.label :animal_id, :class =>"col-sm-2 control-label" %>
+              <div class="col-sm-10">
+                
+                <% f.text_field :animal_id, :class => "form-control" %>
+                <%= f.collection_select(:animal_id, @animales, :id, :nombre) %>
+
+              </div>
+            </div>
+            <br>
+
+            <div class="form-group">
+              <!--<label class="col-sm-2 control-label">Default text input: </label>-->
+               <%= f.label :dia_produccion, :class =>"col-sm-2 control-label" %>
+              <div class="col-sm-10">
+                
+                
+                <%= f.date_field(:dia_produccion, :class => "form-control") %>
+
+                
+              </div>
+            </div>
+            <br>
+
+            
+
+
+
+            
+            <div class="form-actions text-right">
+              
+              <%= f.submit :class => 'btn btn-primary' %>
+            </div>
+            
+                    
+                    </div>
+                </div>
+                <!-- /spinner -->
+<% end %>
+
+
+
+<!--
+<%= form_for(@produccion) do |f| %>
+  <% if @produccion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@produccion.errors.count, "error") %> prohibited this produccion from being saved:</h2>
+
+      <ul>
+      <% @produccion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :animal_id %><br>
+    <% f.text_field :animal_id %>
+    <%= f.collection_select(:animal_id, @animales, :id, :nombre) %>
+  </div>
+  <div class="field">
+    <%= f.label :dia_produccion %><br>
+    <%= f.date_field(:dia_produccion, :class => "form-control") %>
+
+
+    t.date :dia_produccion
+      t.decimal :cantidad_manana
+      t.decimal :cantidad_tarde
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+-->

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dia: 1
+  kilogramos: 1
+  nutricion_id: 
+
+two:
+  dia: 1
+  kilogramos: 1
+  nutricion_id: 

@@ -1,0 +1,35 @@
+<h1>Produccion Global</h1>
+<hr>
+
+		<% @dia = 0 %>
+		<% @dias = 1 %>
+		<% @kilogramos = 0 %>
+		
+
+
+<% @nutriciones.each do |produccion| %>
+	<% @dias 	+=  produccion.calendario_nutriciones.count  %>
+	<% produccion.calendario_nutriciones.each do |calendario|%>
+		
+			<!--Muestro el dia-->
+				
+			Dia :<%= calendario.dia %> | Manana :<%= calendario.kilogramos %> 
+				
+				<!--contador-->
+				<% @dia = calendario.dia %>
+				<% @kilogramos += calendario.kilogramos %>
+				
+
+				<hr>	
+			
+	<% end %>
+	<br>
+<% end %>
+
+
+Total Dias :<%= @dia %> |
+Total Kilogramos :<%= @kilogramos %> |
+
+
+
+<!--en el modelo registras que los dias son unicos-->

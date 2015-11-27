@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  parcela_id: 
+  fecha_entrada: 2015-11-19
+  fecha_salida: 2015-11-19
+  fecha_proxima_parte: 2015-11-19
+  numero_de_vacas: 1
+
+two:
+  parcela_id: 
+  fecha_entrada: 2015-11-19
+  fecha_salida: 2015-11-19
+  fecha_proxima_parte: 2015-11-19
+  numero_de_vacas: 1

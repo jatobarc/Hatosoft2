@@ -1,0 +1,242 @@
+<!-- New invoice template -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h6 class="panel-title"><i class="icon-coin"></i> Informacion Animal</h6>
+                  
+            </div>
+
+        <div class="panel-body">
+
+          <div class="row invoice-header">
+            <div class="col-sm-6">
+              <h3><%= @animal.nombre %></h3>
+              <span><%= @animal.codigo %></span>
+            </div>
+
+            <div class="col-sm-6">
+              <ul class="invoice-details">
+                <li>Id # <strong class="text-danger"><%= @animal.id %></strong></li>
+                <li>Fecha de nacimiento: <strong><%= @animal.fecha_de_nacimiento.strftime("%d %b. %Y") %></strong></li>
+                <li>Fecha de registro: <strong><%= @animal.created_at.strftime("%d %b. %Y") %></strong></li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-sm-3">
+              <h6>Informacion Animal:</h6>
+              <ul>
+                <li><a href="#"><%= @animal.nombre %></a></li>
+                <li><%= @animal.codigo %></li>
+                <li><a href="#"><%= @animal.genero %></a></li>
+                <li><%= @animal.raza %></li>
+                <li><%= @animal.fecha_de_nacimiento%></li>
+                
+
+              </ul>
+            </div>
+
+            <div class="col-sm-3">
+              <h6>Informacion Propietario:</h6>
+              <ul>
+                <li><a href="#"><%= @animal.user.email %></a></li>
+                <li><%= @animal.user.iniciales %></li>
+                
+              </ul>
+            </div>
+            
+            <!--
+            <div class="col-sm-3">
+              <h6>Informacion Producciones:</h6>
+              <ul>
+                <li>Produccion General: <strong class="pull-right">
+                  <% @p_general = 0%>
+                  <% @animal.producciones.each do |p| %>
+                    <% @p_general = p.cantidad_manana  %>
+                    
+                  <% end  %>
+                  <%= @p_general%>
+
+                </strong></li>
+                <li>Responsible: <a href="#" class="pull-right">Eugene Kopyov</a></li>
+                <li>Issued by: <a href="#" class="pull-right">Jennifer Notes</a></li>
+                <li>Payment method: <strong class="pull-right">Wire transfer</strong></li>
+                <li class="invoice-status"><strong>Current status:</strong> <div class="label label-danger pull-right">Unpaid</div></li>
+              </ul>
+            </div>
+
+
+            <div class="col-sm-3">
+              <h6>Informacion Producciones:</h6>
+              <ul>
+                <li>Total hours spent: <strong class="pull-right">379</strong></li>
+                <li>Responsible: <a href="#" class="pull-right">Eugene Kopyov</a></li>
+                <li>Issued by: <a href="#" class="pull-right">Jennifer Notes</a></li>
+                <li>Payment method: <strong class="pull-right">Wire transfer</strong></li>
+                <li class="invoice-status"><strong>Current status:</strong> <div class="label label-danger pull-right">Unpaid</div></li>
+              </ul>
+            </div>
+            -->
+          </div>
+
+        </div>
+
+
+        
+        <div class="col-md-6">
+        <div class="table-responsive">
+            <div class="panel panel-default">
+                  <div class="panel-heading"><h6 class="panel-title"><i class="icon-droplet2"></i> Partos</h6></div>
+                      <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre</th>
+                                    <th>Raza</th>
+                                    <th>Genero</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                              <% @animal.partos.each  do |parto| %>
+                                <tr class="success">
+                                    <td><%= parto.id %></td>
+                                    <td><%= parto.nombre %></td>
+                                    <td><%= parto.raza %></td>
+                                    <td><%= parto.genero %></td>
+                                </tr>
+                              <% end %>
+                                
+                            </tbody>
+                        </table>
+                      </div>
+                </div>
+        </div>
+        </div>
+
+        
+        <div class="col-md-6">
+        <div class="panel panel-default">
+                <div class="panel-heading"><h6 class="panel-title"><i class="icon-droplet2"></i> Producciones</h6></div>
+                      <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Animal</th>
+                                    <th>Mes Produccion</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <% @animal.producciones.each  do |produccion| %>
+                                <tr class="success">
+                                    <td><%= produccion.id  %></td>
+                                    <td><%= produccion.animal.nombre  %></td>
+                                    <td><%= produccion.dia_produccion.strftime("%d %b.")  %></td>
+                                    
+                                    <td><%= produccion.id  %></td>
+                                    
+                                </tr>
+                              <% end %>
+                                
+                            </tbody>
+                        </table>
+                      </div>
+                </div>
+        </div>
+
+        <div class="panel-body">
+          
+
+          <h6>Information:</h6>
+          La idea aqui es poner una nota para que los usuarios ingresen la informacion correcta para calidad de registro.
+        </div>
+      </div>   
+      <!-- /new invoice template -->
+
+
+        
+    
+      <!-- /new invoice template -->
+
+
+
+
+<!--
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @animal.nombre %>
+</p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @animal.codigo %>
+</p>
+
+<p>
+  <strong>Fecha de nacimiento:</strong>
+  <%= @animal.fecha_de_nacimiento %>
+</p>
+
+<p>
+  <strong>Raza:</strong>
+  <%= @animal.raza %>
+</p>
+
+<p>
+  <strong>Genero:</strong>
+  <%= @animal.genero %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @animal.user.email %>
+</p>
+
+
+<h2>Partos</h2>
+
+<% @animal.partos.each  do |parto| %>
+  <%= parto.nombre  %>
+  <br>
+<% end %>
+
+
+<h2>Produccion</h2>
+
+<% @animal.producciones.each  do |produccion| %>
+  <%= produccion.id  %>
+  <br>
+<% end %>
+
+<h4>fecha</h4>
+<%= DateTime.now.mon %>
+<% @ani.each do |anim| %>
+  <%= anim.animal.nombre  %>
+<% end %>
+
+-->
+
+<h4>fecha</h4>
+<%= DateTime.now.mon %>
+<% @ani.each do |anim| %>
+  <%= anim.animal.nombre  %>
+<% end %>
+
+<hr>
+
+
+
+
+
+<%= link_to 'Edit', edit_animal_path(@animal), :class => 'btn btn-info' %> |
+<%= link_to 'Back', animales_path, :class => 'btn btn-danger' %>
+
+
+

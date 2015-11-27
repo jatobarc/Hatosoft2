@@ -1,0 +1,122 @@
+<!-- Form components -->
+        
+        <%= form_for(@parto) do |f| %>
+          <% if @parto.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@parto.errors.count, "error") %> prohibited this parto from being saved:</h2>
+
+              <ul>
+              <% @parto.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+        <!-- Basic inputs -->
+            <div class="panel panel-default">
+              <div class="panel-heading"><h6 class="panel-title"><i class="icon-bubble4"></i>Formulario Partos</h6></div>
+                  <div class="panel-body">
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Madre Animal: </label>
+              <div class="col-sm-10">
+                
+                <%= f.collection_select(:animal_id, @madres, :id, :nombre, :class => "form-control") %>
+              </div>
+            </div>
+            <br>
+
+
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Padre Animal: </label>
+              <div class="col-sm-10">
+                
+                <%= f.collection_select(:padre_id, @padres, :id, :nombre, :class => "form-control") %>
+              </div>
+            </div>
+            <br>
+
+
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Fecha Parto: </label>
+              <div class="col-sm-10">
+                
+                <% f.date_select :fecha_parto, :class => "form-control" %>
+                <%= f.date_field(:fecha_parto, :class => "form-control") %>
+              </div>
+            </div>
+            <br>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Nombre Nacido: </label>
+              <div class="col-sm-10">
+                
+                <%= f.text_field :nombre, :class => "form-control" %>
+
+              </div>
+            </div>
+            <br>
+
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Raza: </label>
+              <div class="col-sm-10">
+                
+                <% f.text_field :raza, :class => "form-control" %>
+                <%= f.select(:raza, Animal::RAZA, {}, :class => "form-control") %> 
+              </div>
+            </div>
+            <br>
+
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Genero: </label>
+              <div class="col-sm-10">
+                
+                <% f.text_field :genero, :class => "form-control" %>
+                <%= f.select(:genero, Animal::GENERO, {}, :class => "form-control") %> 
+              </div>
+            </div>
+            <br>
+
+
+<!--
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Animal: </label>
+              <div class="col-sm-10">
+                
+                
+                <% f.text_field :codigo_nacido, :class => "form-control" %>
+              </div>
+            </div>
+            <br>
+-->
+            <!--
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Input with placeholder: </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="placeholder">
+              </div>
+            </div>
+            -->
+
+            
+
+          </div>
+        </div>
+        <!-- /basic inputs -->
+
+  
+      <div class="form-actions text-right">
+        <%= f.submit :class => 'btn btn-primary' %>
+      </div>
+    
+
+
+     
+                
+  
+<% end %>

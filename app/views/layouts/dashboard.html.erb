@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<title><%= @titulo ||= 'Hatosoft' %></title>
+
+
+  <% stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/css/londinium-theme.css" rel="stylesheet" type="text/css">
+<link href="/css/styles.css" rel="stylesheet" type="text/css">
+<link href="/css/icons.css" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/plugins/interface/daterangepicker.js"></script>
+<script type="text/javascript" src="/js/plugins/interface/moment.js"></script>
+<script type="text/javascript" src="/js/plugins/interface/jgrowl.min.js"></script>
+
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/application_blank.js"></script>
+
+</head>
+
+<body>
+
+	<% render partial: 'layouts/parcial/navbar'%>
+
+	<!-- Page container -->
+ 	<div class="page-container">
+
+
+		<!-- Sidebar -->
+		<div class="sidebar">
+			<div class="sidebar-content">
+
+				<!-- User dropdown -->
+				<div class="user-menu dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<img src="http://placehold.it/300" alt="">
+						<% if user_signed_in? %>
+						<div class="user-info">
+							<%= current_user.email %>
+							
+							
+						</div>
+						<% else %>
+							Usuario Administrador
+						<% end %>
+					</a>
+					<div class="popup dropdown-menu dropdown-menu-right">
+					    <div class="thumbnail">
+					    	<div class="thumb">
+								<img alt="" src="http://placehold.it/300">
+								<div class="thumb-options">
+									<span>
+										<a href="#" class="btn btn-icon btn-success"><i class="icon-pencil"></i></a>
+										<a href="#" class="btn btn-icon btn-success"><i class="icon-remove"></i></a>
+									</span>
+								</div>
+						    </div>
+					    
+					    	<% if user_signed_in? %>
+					    	<div class="caption text-center">
+					    		<h6><%= current_user.email %> <small></small></h6>
+					    	</div>
+					    	<% end %>
+				    	</div>
+
+				    	<ul class="list-group">
+							<li class="list-group-item"><i class="icon-pencil3 text-muted"></i> My posts <span class="label label-success">289</span></li>
+							<li class="list-group-item"><i class="icon-people text-muted"></i> Users online <span class="label label-danger">892</span></li>
+							<li class="list-group-item"><i class="icon-stats2 text-muted"></i> Reports <span class="label label-primary">92</span></li>
+							<li class="list-group-item"><i class="icon-stack text-muted"></i> Balance <h5 class="pull-right text-danger">$45.389</h5></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /user dropdown -->
+
+
+
+
+
+
+
+				<!-- Main navigation -->
+				<ul class="navigation">
+					<li><a href="/dashboard"><span>Dashboard</span> <i class="icon-screen2"></i></a></li>
+					<li>
+						<a href="#"><span>Animales</span> <i class="icon-insert-template"></i></a>
+						<ul>
+							
+							<li class="active"><%= link_to 'Animales',  animales_path %> </li>
+							<li class=""><%= link_to 'Partos',  partos_path %></li>
+							<li class=""><%= link_to 'Producciones',  producciones_path %></li>
+							<!--
+							<li class=""><%= link_to 'Registros de Nutricion',  nutriciones_path %></li>
+							<li class="<%= controller_name ? 'active' : false %>"><%= link_to 'Registros de Nutricion',  nutriciones_path %></li>
+							<li ><%= link_to 'Registros de higiene',  higienes_path %></li>
+							<li class="<%= controller_name ? 'active' : false %>"><%= link_to 'Registros de Nutricion',  nutriciones_path %></li>
+							<li ><%= link_to 'Parcelas',  parcelas_path %></li>
+							-->
+							
+
+						</ul>
+					</li>
+					
+					
+					<li>
+						<a href="#"><span>Registros</span> <i class="icon-stack"></i></a>
+						<ul>
+							<li><%= link_to 'Registro Global (Mensual)', registro_global_path %></li>
+							<li><%= link_to 'Registro Nutricion', nutricion_global_path %></li>
+							<li><%= link_to 'Produccion Global', produccion_global_path %></li>
+							<!--
+							<li><a href="#">Second level second item</a>
+								<ul>
+									<li><a href="#">Third level first item</a></li>
+									<li><a href="#">Third level second item</a></li>
+									<li><a href="#">Third level third item</a>
+										<ul>
+											<li><a href="#">Fourth level first item</a></li>
+											<li><a href="#">Fourth level second item</a></li>
+											<li><a href="#">Fourth level third item</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Third level second item</a></li>
+								</ul>
+							</li>
+							-->
+
+							
+						</ul>
+					</li>
+				</ul>
+				<!-- /main navigation -->
+
+			</div>
+		</div>
+		<!-- /sidebar -->
+
+
+		<!-- Page content -->
+	 	<div class="page-content">
+
+
+
+
+
+			<!-- Page header -->
+			<div class="page-header">
+				<div class="page-title">
+					<h3><%= @titulo ||= 'Hatosoft' %></h3>
+				</div>
+				<!--
+				Fechas del dia
+				<div id="reportrange" class="range">
+					<div class="visible-xs header-element-toggle">
+						<a class="btn btn-primary btn-icon"><i class="icon-calendar"></i></a>
+					</div>
+					<div class="date-range"></div>
+					
+				</div>
+				-->
+			</div>
+			<!-- /page header -->
+
+
+			<!-- Breadcrumbs line -->
+			<div class="breadcrumb-line">
+				<ul class="breadcrumb">
+					<li><a href="/dashboard">Dashboard</a></li>
+					<li><a href="/<%= controller_name %>"><%= controller_name %></a></li>
+					<li class="active"><%= action_name %></li>
+				</ul>
+
+				<!--
+				<div class="visible-xs breadcrumb-toggle">
+					<a class="btn btn-link btn-lg btn-icon" data-toggle="collapse" data-target=".breadcrumb-buttons"><i class="icon-menu2"></i></a>
+				</div>
+
+				<ul class="breadcrumb-buttons collapse">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search3"></i> <span>Search</span> <b class="caret"></b></a>
+						<div class="popup dropdown-menu dropdown-menu-right">
+							<div class="popup-header">
+								<a href="#" class="pull-left"><i class="icon-paragraph-justify"></i></a>
+								<span>Quick search</span>
+								<a href="#" class="pull-right"><i class="icon-new-tab"></i></a>
+							</div>
+							<form action="#" class="breadcrumb-search">
+								<input type="text" placeholder="Type and hit enter..." name="search" class="form-control autocomplete">
+								<div class="row">
+									<div class="col-xs-6">
+										<label class="radio">
+											<input type="radio" name="search-option" class="styled" checked="checked">
+											Everywhere
+										</label>
+										<label class="radio">
+											<input type="radio" name="search-option" class="styled">
+											Invoices
+										</label>
+									</div>
+
+									<div class="col-xs-6">
+										<label class="radio">
+											<input type="radio" name="search-option" class="styled">
+											Users
+										</label>
+										<label class="radio">
+											<input type="radio" name="search-option" class="styled">
+											Orders
+										</label>
+									</div>
+								</div>
+
+								<input type="submit" class="btn btn-block btn-success" value="Search">
+							</form>
+						</div>
+					</li>
+
+					<li class="language dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/flags/german.png" alt=""> <span>German</span> <b class="caret"></b></a>
+						<ul class="dropdown-menu dropdown-menu-right icons-right">
+							<li><a href="#"><img src="images/flags/ukrainian.png" alt=""> Ukrainian</a></li>
+							<li class="active"><a href="#"><img src="images/flags/english.png" alt=""> English</a></li>
+							<li><a href="#"><img src="images/flags/spanish.png" alt=""> Spanish</a></li>
+							<li><a href="#"><img src="images/flags/german.png" alt=""> German</a></li>
+							<li><a href="#"><img src="images/flags/hungarian.png" alt=""> Hungarian</a></li>
+						</ul>
+					</li>
+				</ul>
+
+				-->
+			</div>
+			<!-- /breadcrumbs line -->
+
+
+			<% if notice %>
+			<!-- Callout -->
+			<div class="callout callout-danger fade in">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<h5>Actividad</h5>
+				<p><%= notice %>.</p>
+			</div>
+			<% end %>
+            <!-- /callout -->
+
+
+			<%= yield %>	
+
+
+
+			
+
+
+
+
+	        <!-- Footer -->
+	        <div class="footer clearfix">
+		        <div class="pull-left">&copy; 2013. Londinium Admin Template by <a href="http://themeforest.net/user/Kopyov">Eugene Kopyov</a></div>
+	        	<div class="pull-right icons-group">
+	        		<a href="#"><i class="icon-screen2"></i></a>
+	        		<a href="#"><i class="icon-balance"></i></a>
+	        		<a href="#"><i class="icon-cog3"></i></a>
+	        	</div>
+	        </div>
+	        <!-- /footer -->
+
+
+		</div>
+		<!-- /page content -->
+
+	</div>
+	<!-- /content -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+

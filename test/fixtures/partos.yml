@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  animal_id: 
+  fecha_parto: 2015-11-18
+  codigo_nacido: MyString
+
+two:
+  animal_id: 
+  fecha_parto: 2015-11-18
+  codigo_nacido: MyString

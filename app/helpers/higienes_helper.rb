@@ -1,0 +1,2 @@
+module HigienesHelper
+end

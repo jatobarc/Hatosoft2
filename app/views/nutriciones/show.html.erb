@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Animal:</strong>
+  <%= @nutricion.animal.nombre %>
+</p>
+
+<p>
+  <strong>Mes nutricion:</strong>
+  <%= @nutricion.mes_nutricion %>
+</p>
+
+<hr>
+
+<h1>Fechas</h1>
+<% @nutricion.calendario_nutriciones.each do |calendario| %>
+  <p>
+    <strong>dia:</strong>
+    <%= calendario.dia %>
+  </p>
+
+  <p>
+    <strong>kilogramos:</strong>
+    <%= calendario.kilogramos %>
+  </p>
+ 
+  
+<% end %>
+
+
+
+
+<h1>Agregar Fecha de nutricion</h1>
+<%= form_for([@nutricion, @nutricion.calendario_nutriciones.build]) do |f| %>
+  <p>
+    <%= f.label :dia %><br>
+    <%= f.text_field :dia %>
+  </p>
+  <p>
+    <%= f.label :kilogramo %><br>
+    <%= f.text_field :kilogramos %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_nutricion_path(@nutricion) %> |
+<%= link_to 'Back', nutriciones_path %>

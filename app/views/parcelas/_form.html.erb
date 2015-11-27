@@ -1,0 +1,29 @@
+<%= form_for(@parcela) do |f| %>
+  <% if @parcela.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@parcela.errors.count, "error") %> prohibited this parcela from being saved:</h2>
+
+      <ul>
+      <% @parcela.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :codigo %><br>
+    <%= f.number_field :codigo %>
+  </div>
+  <div class="field">
+    <%= f.label :area %><br>
+    <%= f.number_field :area %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_pasto %><br>
+    <%= f.text_field :tipo_pasto %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

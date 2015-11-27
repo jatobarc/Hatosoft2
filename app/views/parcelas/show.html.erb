@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @parcela.codigo %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @parcela.area %>
+</p>
+
+<p>
+  <strong>Tipo pasto:</strong>
+  <%= @parcela.tipo_pasto %>
+</p>
+
+
+
+<h2>Registros</h2>
+<% @parcela.registro_parcelas.each do |registro| %>
+  <p>
+    <strong>fecha_entrada:</strong>
+    <%= registro.fecha_entrada %>
+  </p>
+
+  <p>
+    <strong>fecha_salida:</strong>
+    <%= registro.fecha_salida %>
+  </p>
+  <p>
+    <strong>fecha_proxima_parte:</strong>
+    <%= registro.fecha_proxima_parte %>
+  </p>
+  <p>
+    <strong>numero_de_vacas:</strong>
+    <%= registro.numero_de_vacas %>
+  </p>
+
+  
+ 
+ 
+<% end %>
+
+
+
+<h2>Agregar Registro:</h2>
+<%= form_for([@parcela, @parcela.registro_parcelas.build]) do |f| %>
+  <p>
+    <%= f.label :fecha_entrada %><br>
+    <%= f.date_select :fecha_entrada %>
+  </p>
+
+  <p>
+    <%= f.label :fecha_salida %><br>
+    <%= f.date_select :fecha_salida %>
+  </p>
+
+  <p>
+    <%= f.label :fecha_proxima_parte %><br>
+    <%= f.date_select :fecha_proxima_parte %>
+  </p>
+
+  <p>
+    <%= f.label :numero_de_vacas %><br>
+    <%= f.number_field :numero_de_vacas %>
+  </p>
+  
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_parcela_path(@parcela) %> |
+<%= link_to 'Back', parcelas_path %>
+
+

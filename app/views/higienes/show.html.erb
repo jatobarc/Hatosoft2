@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @higiene.fecha %>
+</p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @higiene.codigo %>
+</p>
+
+<p>
+  <strong>Elemento:</strong>
+  <%= @higiene.elemento %>
+</p>
+
+<p>
+  <strong>Material:</strong>
+  <%= @higiene.material %>
+</p>
+
+<p>
+  <strong>Sustancia aseo:</strong>
+  <%= @higiene.sustancia_aseo %>
+</p>
+
+<p>
+  <strong>Sustancia desinfectante:</strong>
+  <%= @higiene.sustancia_desinfectante %>
+</p>
+
+<p>
+  <strong>Uso:</strong>
+  <%= @higiene.uso %>
+</p>
+
+<p>
+  <strong>Dosis:</strong>
+  <%= @higiene.dosis %>
+</p>
+
+<p>
+  <strong>Higiene manana:</strong>
+  <%= @higiene.higiene_manana %>
+</p>
+
+<p>
+  <strong>Higiene tarde:</strong>
+  <%= @higiene.higiene_tarde %>
+</p>
+
+<%= link_to 'Edit', edit_higiene_path(@higiene) %> |
+<%= link_to 'Back', higienes_path %>

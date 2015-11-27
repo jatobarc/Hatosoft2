@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dia: 1
+  manana: 1
+  tarde: 1
+  finca: 1
+  produccion_id: 
+
+two:
+  dia: 1
+  manana: 1
+  tarde: 1
+  finca: 1
+  produccion_id: 

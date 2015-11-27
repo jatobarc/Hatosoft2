@@ -1,0 +1,26 @@
+<%= form_for(@nutricion) do |f| %>
+  <% if @nutricion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nutricion.errors.count, "error") %> prohibited this nutricion from being saved:</h2>
+
+      <ul>
+      <% @nutricion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :animal_id %><br>
+    <% f.text_field :animal_id %>
+    <%= f.collection_select(:animal_id, @animales, :id, :nombre) %>
+  </div>
+  <div class="field">
+    <%= f.label :mes_nutricion %><br>
+    <%= f.date_select :mes_nutricion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,57 @@
+<%= form_for(@higiene) do |f| %>
+  <% if @higiene.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@higiene.errors.count, "error") %> prohibited this higiene from being saved:</h2>
+
+      <ul>
+      <% @higiene.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :codigo %><br>
+    <%= f.number_field :codigo %>
+  </div>
+  <div class="field">
+    <%= f.label :elemento %><br>
+    <%= f.text_field :elemento %>
+  </div>
+  <div class="field">
+    <%= f.label :material %><br>
+    <%= f.text_field :material %>
+  </div>
+  <div class="field">
+    <%= f.label :sustancia_aseo %><br>
+    <%= f.text_field :sustancia_aseo %>
+  </div>
+  <div class="field">
+    <%= f.label :sustancia_desinfectante %><br>
+    <%= f.text_field :sustancia_desinfectante %>
+  </div>
+  <div class="field">
+    <%= f.label :uso %><br>
+    <%= f.text_field :uso %>
+  </div>
+  <div class="field">
+    <%= f.label :dosis %><br>
+    <%= f.text_field :dosis %>
+  </div>
+  <div class="field">
+    <%= f.label :higiene_manana %><br>
+    <%= f.text_field :higiene_manana %>
+  </div>
+  <div class="field">
+    <%= f.label :higiene_tarde %><br>
+    <%= f.text_field :higiene_tarde %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
